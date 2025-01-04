@@ -1,0 +1,17 @@
+<%- include ( "partials/header.ejs") %> 
+<body>
+    <h1><%= title %></h1>
+    <p>
+        <%- content.replace(/\n/g, '<br>') %>
+       
+    </p>
+    <a href="/posts/<%= encodeURIComponent(title) %>/edit" class="button edit-link">Edit Post</a> 
+
+        <!-- Delete Post Button -->
+    <form action="/posts/<%= encodeURIComponent(title) %>?_method=DELETE" method="POST" style="display:inline;">
+         <button type="submit" class="button delete-button">Delete Post</button>
+    </form>
+    <br><br>  
+</body>
+
+<%- include("partials/footer.ejs")%>

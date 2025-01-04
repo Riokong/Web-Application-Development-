@@ -1,0 +1,24 @@
+<%- include ( "partials/header.ejs") %> 
+<body>
+  <div class = "top-column">
+      <h1>Welcome to my Home Page</h1>
+      <br>
+      <h3>  Hey, today is <%= formatDay %>, It's <%= dayType %>, <%= advice %>! </h3>
+ </div>
+ <hr>
+ <div class = "postsShow">
+     <% posts.forEach((post)=> { %>
+        <div class = "postStyle" >
+            <h3><%- post.title %></h3>
+            <p>
+                <% var shortText = post.content %>
+                <% truncShortText = shortText.substring(0, 150) %>
+                <%- truncShortText.replace(/\n/g, '<br>') %>
+            </p>
+            <a href="posts/<%= encodeURIComponent(post.title) %>">Read more</a>
+        </div>
+     <% }) %>
+ </div>
+ <br><br> 
+</body>
+<%- include("partials/footer.ejs")%>
